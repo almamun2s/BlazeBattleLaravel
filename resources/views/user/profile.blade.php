@@ -6,13 +6,13 @@
             <div class="bb-profile-inner">
                 <div class="bb-profile-top">
                     <div class="bb-profile-top-img">
-                        <img src="assets/img/profile.png" alt="">
+                        <img src="{{asset('img/profile.png')}}" alt="">
                     </div>
                     <div class="bb-profile-details">
-                        <h4>Abdullah Almamun</h4>
+                        <h4>{{auth()->user()->fname}} {{auth()->user()->lname}}</h4>
                         <!-- <a href="team-single.html">Team Crazy</a> -->
                         <a href="team.html"><i class="fas fa-plus"></i> Join a team</a>
-                        <p><i class="fas fa-gamepad"></i> Free Fire ID code: <span>Not varified</span></p>
+                        <p><i class="fas fa-gamepad"></i> Free Fire ID code: <span>{{auth()->user()->ff_id}}</span></p>
                         <!-- <p>Total games played: 25</p> -->
                     </div>
                 </div>
@@ -101,5 +101,5 @@
             </div>
         </div>
     </section>
-    
+
 @include('partials._footer')
