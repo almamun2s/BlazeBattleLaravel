@@ -1,0 +1,26 @@
+.bb-re-login-inner form div{
+    margin: auto;
+}
+
+.bb-input-error{
+    color: var(--hover-color);
+}
+
+.bb-re-login-inner h2{
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 2rem;
+    text-transform: capitalize;
+    color: #333;
+}
+.bb-input p{
+    margin-top: 1rem;
+}
+.bb-input p a{
+    text-decoration: none;
+    transition: var(--transition);
+    color: var(--profile-bg);
+}
+.bb-input p a:hover{
+    color: var(--hover-color);
+}

@@ -1,0 +1,157 @@
+/* Profile Section */
+.bb-profile-top{
+    width: 50%;
+    margin: auto;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    background-color: var(--profile-bg);
+    padding: 1rem;
+    margin-top: 2rem;
+    justify-content: space-between;
+ }
+.bb-profile-top-img{
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+ }
+ .bb-profile-details h4{
+    font-size: 2rem;
+    font-family: var(--ff-barlow);
+    color: #fff;
+ }
+ .bb-profile-details a{
+    text-decoration: none;
+    color: var(--paste-color);
+    font-family: var(--ff-oswald);
+    transition: var(--transition);
+ }
+ .bb-profile-details a:hover{
+    color: var(--hover-color);
+ }
+ .bb-profile-details p{
+     color: #ddd;
+     font-family: var(--ff-barlow);
+     font-weight: 600;
+     margin-top: 0.5rem;
+}
+.bb-profile-details p span{
+    color: var(--hover-color);
+}
+
+
+
+ /* Profile bottom */
+ .bb-profile-bottom{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+ }
+ .bb-profile-bottom-left{
+    width: 25%;
+ }
+ .bb-profile-bottom-left ul{
+    list-style: none;
+ }
+ .bb-profile-bottom-left ul li a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: var(--ff-barlow);
+    font-weight: 600;
+    color: #726b69;
+    transition: var(--transition);
+}
+.bb-profile-bottom-left ul li a:hover{
+    color: #fff;
+    background-color: var(--hover-color);
+}
+
+.bb-profile-bottom-right{
+    width: 70%;
+    margin-bottom: 1rem;
+}
+.bb-profile-bottom-details {
+    width: 100%;
+}
+.bb-profile-bottom-details h3{
+    font-size: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-family: var(--ff-barlow);
+}
+.bb-profile-bottom-details p{
+    text-align: right;
+    padding-bottom: 0.5rem;
+}
+.bb-tournament-table{
+    width: 100%;
+}
+.bb-tournament-table td,.bb-tournament-table th{
+    border: 1px solid var(--profile-bg);
+    padding: 1rem 0.5rem ;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-family: var(--ff-barlow);
+}
+.bb-tournament-table td{
+    color: #726b69;
+}
+.bb-tournament-table td a{
+    text-decoration: none;
+    color: var(--profile-bg);
+    transition: var(--transition);
+}
+.bb-tournament-table td a:hover{
+    color: var(--hover-color);
+}
+.bb-active-tournament{
+    color: var(--hover-color)!important;
+}
+
+/* Profile update  */
+.bb-profile-bottom-details form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.bb-input{
+    width: 48%;
+    margin-bottom: 0.5rem!important;
+}
+.bb-input label{
+    font-family: var(--ff-oswald);
+}
+.bb-input input,
+.bb-input textarea{
+    width: 100%;
+    color: #252525;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    font-family: var(--ff-barlow);
+    outline: none;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+}
+.bb-input input:focus{
+    border: 1px solid var(--profile-bg);
+}
+
+.bb-input input[type=submit]{
+    background-color: var(--profile-bg);
+    color: #fff;
+    font-family: var(--ff-oswald);
+    cursor: pointer;
+}
+.bb-input input[type=submit]:hover{
+    background-color: var(--hover-color);
+}
+
+/* Password change */
+.bb-password .bb-input{
+    width: 100%;
+}

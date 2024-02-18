@@ -1,0 +1,180 @@
+.bb-team-inner h1{
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+    font-family: var(--ff-barlow);
+}
+.bb-team-search form{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+.bb-search-item{
+    width: 74%!important;
+}
+.bb-search-submit{
+    width: 24%!important;
+}
+
+.bb-all-teams{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.bb-single-team{
+    width: 48%;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+.bb-single-team a{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    border: 1px solid var(--profile-bg);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+.bb-single-team a:hover > div h2{
+    color: var(--hover-color);
+}
+.bb-team-left{
+    width: 30%;
+}
+
+.bb-team-right{
+    width: 60%;
+}
+.bb-team-right h2{
+    color: var(--profile-bg);
+    font-family: var(--ff-oswald);
+    transition: var(--transition);
+    font-size: 2rem;
+}
+.bb-team-right p{
+    color: var(--profile-bg);
+    font-family: var(--ff-barlow);
+    font-size: 1.3rem;
+}
+
+
+/* single team */
+.bb-single-team-top{
+    padding: 1rem;
+}
+.bb-team-img{
+    width: 30%;
+    margin: auto;
+}
+.bb-single-team-top h2{
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: var(--ff-oswald);
+}
+.bb-single-team-top p{
+    text-align: center;
+    font-family: var(--ff-barlow);
+    font-size: 1.3rem;
+}
+
+
+/* Joining a team */
+.bb-single-team-top form{
+    text-align: center;
+}
+.bb-single-team-top form input{
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--trophy-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    font-family: var(--ff-barlow);
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.bb-single-team-top form input:hover{
+    background-color: var(--hover-color);
+}
+
+
+
+
+.bb-single-team-bottom{
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+}
+.bb-single-team-bottom p{
+    font-size: 1.3rem;
+    font-family: var(--ff-barlow);
+    line-height: 2rem;
+    letter-spacing: 0.05rem;
+}
+.bb-single-team-bottom h3{
+    font-size: 2.3rem;
+    text-align: center;
+    font-family: var(--ff-barlow);
+    margin-top: 2rem;
+}
+
+
+/* Team members */
+.bb-team-members{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bb-team-member{
+    width: 30%;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+}
+.bb-team-member a{
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    color: var(--profile-bg);
+    font-size: 1.5rem;
+}
+.bb-team-member a:hover{
+    color: var(--hover-color);
+}
+.bb-team-member-img{
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50%;
+    margin: auto;
+}
+.bb-team-member p{
+    color: #333;
+}
+
+
+/* remove member */
+.bb-remove-member, .bb-make-coleader{
+    background-color: var(--hover-color);
+    cursor: pointer;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 0.5rem;
+}
+.bb-make-coleader{
+    background-color: var(--profile-bg);
+}
+
+
+/* Team Creation */
+.bb-team-creation{
+    width: 100%;
+    text-align: right;
+}
