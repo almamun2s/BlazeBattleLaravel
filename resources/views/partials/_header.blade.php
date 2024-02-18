@@ -28,17 +28,17 @@
                 </div>
                 <div class="bb-header-menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Feature</a></li>
-                        <li><a href="#">Achivement</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="teams">Teams</a></li>
+                        {{-- <li><a href="#">Achivement</a></li> --}}
                     </ul>
                 </div>
                 <div class="bb-header-pp-btn">
                     <ul>
-                        <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-                        <li><a href="#"><i class="fas fa-door-open"></i> Log out</a></li>
-                        <!-- <li><a href="#"><i class="fas fa-user"></i> Log in</a></li>
-                        <li><a href="#"><i class="fas fa-user-plus"></i> sign up</a></li> -->
+                        {{-- <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li> --}}
+                        {{-- <li><a href="#"><i class="fas fa-door-open"></i> Log out</a></li> --}}
+                        <li><a href="login"><i class="fas fa-user"></i> Log in</a></li>
+                        <li><a href="register"><i class="fas fa-user-plus"></i> sign up</a></li>
                     </ul>
                 </div>
             </div>
