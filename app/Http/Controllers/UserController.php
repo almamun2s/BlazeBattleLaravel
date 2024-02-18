@@ -13,6 +13,19 @@ class UserController extends Controller
     {
         return view('user.login');
     }
+    public function login_user(Request $request){
+        $formField = $request->validate([
+            'email' => ['required', 'email'],
+            'password'  => 'required'
+        ]);
+
+        if (auth()->attempt($formField)) {
+            $request->session()->regenerate();
+            return redirect('/profile');
+        }
+
+        return back()->withErrors(['email' => 'Invalid requirements.'])->onlyInput('email');
+    }
     public function logout(Request $request){
         auth()->logout();
 

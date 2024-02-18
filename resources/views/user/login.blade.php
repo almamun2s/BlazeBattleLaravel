@@ -5,10 +5,14 @@
         <div class="bb-container">
             <div class="bb-re-login-inner">
                 <h2>Login form</h2>
-                <form action="#" method="post">
+                <form action="/login" method="post">
+                    @csrf
                     <div class="bb-input">
                         <label for="email">Email:</label>
-                        <input type="text" name="email" autocomplete="off" >
+                        <input type="text" name="email" autocomplete="off" value="{{old('email')}}" >
+                        @error('email')
+                            <p class="bb-input-error">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="bb-input">
                         <label for="password">Password:</label>

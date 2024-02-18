@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 // ================== Routes for User ==================
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [UserController::class, 'login_user'])->middleware('guest');
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 Route::post('/register', [UserController::class, 'register_user'])->middleware('guest');
