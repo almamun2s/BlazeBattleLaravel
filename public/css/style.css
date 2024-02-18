@@ -63,7 +63,9 @@ img{
     list-style: none;
     display: flex;
 }
-.bb-header-menu ul li a, .bb-header-pp-btn ul li a{
+.bb-header-menu ul li a, 
+.bb-header-pp-btn ul li a,
+.bb-header-pp-btn ul form button{
     display: inline-block;
     color: #fff;
     font-size: 1.1rem;
@@ -81,17 +83,22 @@ img{
     border-radius: 0.5rem;
     overflow: hidden;
 }
-.bb-header-pp-btn ul li a{
+.bb-header-pp-btn ul li a,
+.bb-header-pp-btn ul form button{
     font-family: var(--ff-barlow);
     text-transform: capitalize;
     background-color: #fff;
     color: var(--header-bg);
 }
-.bb-header-pp-btn ul li a:hover{
+.bb-header-pp-btn ul li a:hover,
+.bb-header-pp-btn ul li form button:hover{
     background-color: var(--hover-color);
     color: #fff;
 }
-
+.bb-header-pp-btn ul li form button{
+    border: none;
+    cursor: pointer;
+}
 /* =========== Footer Section =========== */
 .bb-footer{
     background-color: #080e37;

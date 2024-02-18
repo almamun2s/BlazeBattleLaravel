@@ -13,6 +13,14 @@ class UserController extends Controller
     {
         return view('user.login');
     }
+    public function logout(Request $request){
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
 
     // Showing user the registration form
     public function register()

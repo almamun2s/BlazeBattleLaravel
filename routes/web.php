@@ -21,8 +21,9 @@ Route::get('/', function () {
 
 
 // ================== Routes for User ==================
-Route::get('/login', [UserController::class, 'login']);
-Route::get('/register', [UserController::class, 'register']);
-Route::post('/register', [UserController::class, 'register_user']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+Route::get('/register', [UserController::class, 'register'])->middleware('guest');
+Route::post('/register', [UserController::class, 'register_user'])->middleware('guest');
 
-Route::get('/profile', [UserController::class, 'profile']);
+Route::get('/profile', [UserController::class, 'profile'])->middleware('auth');

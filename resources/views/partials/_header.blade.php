@@ -37,7 +37,12 @@
                     <ul>
                         @auth
                             <li><a href="profile"><i class="fas fa-user"></i> Profile</a></li>
-                            <li><a href="logout"><i class="fas fa-door-open"></i> Log out</a></li>
+                            <li>
+                                <form class="inline" action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit"><i class="fa-solid fa-door-open"></i>Log Out</button>
+                                </form>
+                            </li>
                         @endauth
                         @guest
                             <li><a href="login"><i class="fas fa-user"></i> Log in</a></li>
