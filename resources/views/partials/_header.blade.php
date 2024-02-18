@@ -35,10 +35,14 @@
                 </div>
                 <div class="bb-header-pp-btn">
                     <ul>
-                        {{-- <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li> --}}
-                        {{-- <li><a href="#"><i class="fas fa-door-open"></i> Log out</a></li> --}}
-                        <li><a href="login"><i class="fas fa-user"></i> Log in</a></li>
-                        <li><a href="register"><i class="fas fa-user-plus"></i> sign up</a></li>
+                        @auth
+                            <li><a href="profile"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="logout"><i class="fas fa-door-open"></i> Log out</a></li>
+                        @endauth
+                        @guest
+                            <li><a href="login"><i class="fas fa-user"></i> Log in</a></li>
+                            <li><a href="register"><i class="fas fa-user-plus"></i> sign up</a></li>
+                        @endguest
                     </ul>
                 </div>
             </div>
