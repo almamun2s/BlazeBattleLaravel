@@ -15,4 +15,10 @@ class Team extends Model
         'team_pic',
         'user_id'
     ];
+
+    public function scopeFilter($query, array $filters){
+        if ($filters['search'] ?? false ) {
+            $query->where('name', 'like', '%'.$filters['search'].'%');
+        }
+    }
 }

@@ -5,12 +5,12 @@
         <div class="bb-container">
             <div class="bb-team-inner">
                 <div class="bb-team-search">
-                    <form action="#" method="post">
+                    <form action="/teams"> 
                         <div class="bb-input bb-search-item">
                             <input type="search" name="search" placeholder="Search a team" autocomplete="off">
                         </div>
                         <div class="bb-input bb-search-submit">
-                            <input type="submit" name="searchBtn" value="Search">
+                            <input type="submit" value="Search">
                         </div>
                     </form>
                 </div>
