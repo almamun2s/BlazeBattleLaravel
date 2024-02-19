@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,8 @@ Route::get('/register', [UserController::class, 'register'])->middleware('guest'
 Route::post('/register', [UserController::class, 'register_user'])->middleware('guest');
 
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth');
+
+// ================== Routes for Team ==================
+Route::get('/teams', [TeamController::class, 'teams'] );
+Route::get('/teams/create', [TeamController::class, 'create'] );
+Route::get('/teams/{team}', [TeamController::class, 'single'] );
