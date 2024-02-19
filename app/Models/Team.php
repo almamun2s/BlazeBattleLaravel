@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Team extends Model
 {
@@ -20,5 +21,11 @@ class Team extends Model
         if ($filters['search'] ?? false ) {
             $query->where('name', 'like', '%'.$filters['search'].'%');
         }
+    }
+
+
+    // Relation to  User
+    public function user(){
+        return $this->hasMany(User::class, 'teams_id');
     }
 }

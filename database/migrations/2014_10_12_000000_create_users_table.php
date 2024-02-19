@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email')->unique();
+            $table->integer('teams_id')->nullable();
             $table->integer('ff_id')->unique()->nullable();
             $table->string('profile_pic')->nullable();
             $table->timestamp('email_verified_at')->nullable();

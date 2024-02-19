@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'fname',
         'lname',
+        'teams_id',
         'email',
         'password',
         'ff_id',
@@ -45,4 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Relation to Team
+    public function team(){
+        return $this->belongsTo(Team::class, 'teams_id');
+    }
 }
