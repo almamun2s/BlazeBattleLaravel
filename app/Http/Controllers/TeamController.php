@@ -13,7 +13,7 @@ class TeamController extends Controller
         return view(
             'team.team',
             [
-                'teams'  => Team::latest()->filter(request(['search']))->paginate(50)
+                'teams'  => Team::latest()->filter(request(['search']))->paginate(5)
                 // 'teams' => Team::get() // It will work but can't be searched 
             ]
         );

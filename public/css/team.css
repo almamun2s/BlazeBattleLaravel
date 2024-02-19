@@ -178,3 +178,26 @@
     width: 100%;
     text-align: right;
 }
+
+/* Pagination css */
+.bb-pagination{
+    width: 100%;
+    list-style:none ;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.bb-pagination li{
+    width: 2rem;
+    font-size: 1.5rem;
+}
+.bb-pagination li a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--profile-bg);
+    transition: var(--transition);
+}
+.bb-pagination li a:hover{
+    color: var(--hover-color);
+}

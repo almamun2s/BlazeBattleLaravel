@@ -38,7 +38,7 @@
                         <p>Team Not found</p>
                     @endunless
 
-
+                    {{$teams->links('pagination.custom')}}
                 </div>
             </div>
         </div>
