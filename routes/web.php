@@ -32,5 +32,6 @@ Route::get('/profile', [UserController::class, 'profile'])->middleware('auth');
 
 // ================== Routes for Team ==================
 Route::get('/teams', [TeamController::class, 'teams'] );
-Route::get('/teams/create', [TeamController::class, 'create'] );
+Route::get('/teams/create', [TeamController::class, 'create'] )->middleware('auth');
+Route::post('/teams/create', [TeamController::class, 'create_team'] )->middleware('auth');
 Route::get('/teams/{team}', [TeamController::class, 'single'] );

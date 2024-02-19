@@ -5,15 +5,21 @@
         <div class="bb-container">
             <div class="bb-re-login-inner">
                 <h2>Make Your Team</h2>
-                <form action="#" method="post">
+                <form action="create" method="post">
+                    @csrf
                     <div class="bb-input">
-                        <label for="tname">Team Name:</label>
-                        <input type="text" name="fname" autocomplete="off" >
-                        <p class="bb-input-error">Team Name is required</p>
+                        <label for="name">Team Name:</label>
+                        <input type="text" name="name" autocomplete="off" value="{{old('name')}}" >
+                        @error('name')
+                            <p class="bb-input-error">Team Name is required</p>
+                        @enderror
                     </div>
                     <div class="bb-input">
-                        <label for="tname">Team Description:</label>
-                        <textarea name="team_description"></textarea>
+                        <label for="description">Team Description:</label>
+                        <textarea name="description">{{old('description')}}</textarea>
+                        @error('description')
+                            <p class="bb-input-error">Team Description is required</p>
+                        @enderror
                     </div>
                     <div class="bb-input">
                         <label for="file">Upload team photo</label>
@@ -21,13 +27,12 @@
                     </div>
 
                     <div class="bb-input">
-                        <input type="submit" name="submit" value="Sign Up" >
-                        <p>Already have an account? <a href="login.html">Login</a></p>
+                        <input type="submit" name="submit" value="Make Team" >
                     </div>
                     
                 </form>
             </div>
         </div>
     </section>
-    
+
 @include('partials._footer')

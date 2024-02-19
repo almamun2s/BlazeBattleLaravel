@@ -32,4 +32,16 @@ class TeamController extends Controller
     public function create(){
         return view('team.create');
     }
+
+    // Creating Team
+    public function create_team(Request $request){
+        $formField = $request->validate([
+            'name'          => 'required',
+            'description'   => 'required'
+        ]);
+        $formField['user_id'] = auth()->id();
+
+        $team = Team::create($formField);
+        return redirect("/teams/$team->id");
+    }
 }
