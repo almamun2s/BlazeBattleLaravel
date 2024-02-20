@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -60,13 +61,23 @@ class UserController extends Controller
         return redirect('/profile');
     }
 
+
+    // private function gettingTeam(Team $team){
+    //     if( auth()->user()->teams_id == null){
+
+    //     }else{
+
+    //     }
+    // }
+
     // Showing user Profile
     public function profile()
     {
         return view(
             'user.profile',
             [
-                'tab'   => 'dashboard'
+                'tab'   => 'dashboard',
+                'team'  => Team::find(User::findOrFail(auth()->id())->teams_id)
             ]
         );
     }
@@ -77,7 +88,8 @@ class UserController extends Controller
         return view(
             'user.profile',
             [
-                'tab'   => $tab
+                'tab'   => $tab,
+                'team'  => Team::find(User::findOrFail(auth()->id())->teams_id)
             ]
         );
     }

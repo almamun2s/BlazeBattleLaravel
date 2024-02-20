@@ -10,8 +10,13 @@
                     </div>
                     <div class="bb-profile-details">
                         <h4>{{auth()->user()->fname}} {{auth()->user()->lname}}</h4>
-                        <!-- <a href="team-single.html">Team Crazy</a> -->
-                        <a href="/teams"><i class="fas fa-plus"></i> Join a team</a>
+
+                        @if (auth()->user()->teams_id != null)
+                            <a href="/teams/{{$team->id}}">{{$team->name}}</a>
+                        @else
+                            <a href="/teams"><i class="fas fa-plus"></i> Join a Team </a>
+                        @endif
+
                         <p><i class="fas fa-gamepad"></i> Free Fire ID code: <span>{{auth()->user()->ff_id}}</span></p>
                         {{-- <p>Total games played: 25</p> --}}
                     </div>
