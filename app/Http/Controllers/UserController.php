@@ -81,4 +81,15 @@ class UserController extends Controller
             ]
         );
     }
+
+    public function profile_edit(Request $request){
+        $formField = $request->validate([
+            'fname' => ['required', 'min:3'],
+            'lname' => ['required', 'min:3'],
+            'ff_id' => ['required']
+        ]);
+        User::where('id', auth()->id())->update($formField);
+
+        return back()->with('message', 'Profile updated Successfully.');
+    }
 }

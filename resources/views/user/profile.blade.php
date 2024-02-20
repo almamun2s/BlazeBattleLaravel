@@ -14,7 +14,6 @@
                         <a href="/teams"><i class="fas fa-plus"></i> Join a team</a>
                         <p><i class="fas fa-gamepad"></i> Free Fire ID code: <span>{{auth()->user()->ff_id}}</span></p>
                         {{-- <p>Total games played: 25</p> --}}
-                        <p>{{$tab}}</p>
                     </div>
                 </div>
                 <div class="bb-profile-bottom">
