@@ -110,6 +110,10 @@
 .bb-active-tournament{
     color: var(--hover-color)!important;
 }
+.bb-active-tab{
+    background-color: var(--hover-color);
+    color: #fff!important;
+}
 
 /* Profile update  */
 .bb-profile-bottom-details form{

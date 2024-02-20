@@ -60,9 +60,25 @@ class UserController extends Controller
         return redirect('/profile');
     }
 
-    // Showing user the registration form
+    // Showing user Profile
     public function profile()
     {
-        return view('user.profile');
+        return view(
+            'user.profile',
+            [
+                'tab'   => 'dashboard'
+            ]
+        );
+    }
+
+    // Showing user Profile
+    public function profileTab( $tab )
+    {
+        return view(
+            'user.profile',
+            [
+                'tab'   => $tab
+            ]
+        );
     }
 }

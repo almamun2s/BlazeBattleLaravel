@@ -29,6 +29,7 @@ Route::get('/register', [UserController::class, 'register'])->middleware('guest'
 Route::post('/register', [UserController::class, 'register_user'])->middleware('guest');
 
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth');
+Route::get('/profile/{tab}', [UserController::class, 'profileTab'])->middleware('auth');
 
 // ================== Routes for Team ==================
 Route::get('/teams', [TeamController::class, 'teams'] );

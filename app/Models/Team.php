@@ -14,7 +14,8 @@ class Team extends Model
         'name',
         'description',
         'team_pic',
-        'user_id'
+        'user_id',
+        'team_position'
     ];
 
     public function scopeFilter($query, array $filters){
