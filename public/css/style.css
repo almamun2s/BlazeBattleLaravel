@@ -42,7 +42,10 @@ img{
     max-width: 1200px;
     margin: auto;
 }
-
+.bb-hide{
+    opacity: 0;
+    visibility: hidden;
+}
 
 /* =========== Header Section =========== */
 .bb-header{
@@ -214,4 +217,21 @@ img{
 }
 .bb-first-btn:hover{
     background-color: var(--hover-color);
+}
+
+/* Data Updated */
+.bb-data-updated{
+    position: fixed;
+    width: 800px;
+    background-color: #ff00519d;
+    top: 5rem;
+    left: calc(50% - 400px);
+    text-align: center;
+    padding: 1rem 0;
+    color: #fff;
+    font-family: var(--ff-barlow);
+    transition: var(--transition);
+}
+.bb-data-updated p{
+    font-size: 1.1rem;
 }
