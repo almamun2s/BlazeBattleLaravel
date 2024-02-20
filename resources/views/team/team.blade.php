@@ -17,13 +17,13 @@
                 <h1>Teams</h1>
                 <div class="bb-all-teams">
                     <div class="bb-team-creation">
-                        <a href="teams/create" class="bb-first-btn">Create team</a>
+                        <a href="/teams/create" class="bb-first-btn">Create team</a>
                     </div>
 
                     @unless (count($teams) == 0)
                         @foreach ($teams as $team)
                             <div class="bb-single-team">
-                                <a href="teams/{{$team->id}}">
+                                <a href="/teams/{{$team->id}}">
                                     <div class="bb-team-left">
                                         <img src="{{asset('img/freefire.webp')}}" alt="">
                                     </div>

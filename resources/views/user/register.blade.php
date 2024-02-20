@@ -45,7 +45,7 @@
 
                     <div class="bb-input">
                         <input type="submit" name="submit" value="Sign Up" >
-                        <p>Already have an account? <a href="login">Login</a></p>
+                        <p>Already have an account? <a href="/login">Login</a></p>
                     </div>
                     
                 </form>

@@ -5,7 +5,7 @@
         <div class="bb-container">
             <div class="bb-re-login-inner">
                 <h2>Make Your Team</h2>
-                <form action="create" method="post">
+                <form action="/teams/create" method="post">
                     @csrf
                     <div class="bb-input">
                         <label for="name">Team Name:</label>

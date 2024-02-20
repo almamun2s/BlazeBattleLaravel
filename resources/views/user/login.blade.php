@@ -21,7 +21,7 @@
 
                     <div class="bb-input">
                         <input type="submit" name="submit" value="Log in" >
-                        <p>Don't have an account? <a href="register">Register</a></p>
+                        <p>Don't have an account? <a href="/register">Register</a></p>
                     </div>
                     
                 </form>
