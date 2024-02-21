@@ -36,4 +36,6 @@ Route::get('/profile/{tab}', [UserController::class, 'profileTab'])->middleware(
 Route::get('/teams', [TeamController::class, 'teams'] ); // Showing Teams
 Route::get('/teams/create', [TeamController::class, 'create'] )->middleware('auth'); // Showing Team create form
 Route::post('/teams/create', [TeamController::class, 'create_team'] )->middleware('auth'); // Submitting Team create form
+Route::put('/teams/join', [TeamController::class, 'teams_join'])->middleware('auth'); // Submitting Team join form
+Route::put('/teams/leave', [TeamController::class, 'teams_leave'])->middleware('auth'); // Submitting Team join form
 Route::get('/teams/{team}', [TeamController::class, 'single'] ); // Showing Single Team 

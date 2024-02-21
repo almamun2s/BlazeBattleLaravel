@@ -126,12 +126,13 @@
 .bb-team-members{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 
 .bb-team-member{
     width: 30%;
+    margin: 1%;
     margin-bottom: 1rem;
     text-align: center;
     border: 1px solid #ddd;

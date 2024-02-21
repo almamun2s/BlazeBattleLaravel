@@ -9,10 +9,41 @@
                         <img src="{{asset('img/freefire.webp')}}" alt="">
                     </div>
                     <h2>{{$team->name}} </h2>
-                    <p>Total member: 3</p>
-                    <form action="#" method="post">
-                        <input type="submit" value="Join This Team">
-                    </form>
+                    <p>Total member: {{count($members)}} </p>
+                    @auth
+                        @if (auth()->user()->teams_id != null )
+                            {{-- Current user is already a member of a team --}}
+                            
+                            @if ($team->id == auth()->user()->teams_id)
+                                {{-- The user is a member of current team --}}
+                                @if (auth()->user()->team_position == 'leader' )
+                                    {{-- The user is the leader of current team --}}
+                                    {{-- <form action="#" method="post">
+                                        <input type="submit" value="Delete the Team">
+                                    </form> --}}
+                                @else
+                                    <form action="/teams/leave" method="post">
+                                        @method('put')
+                                        @csrf
+                                        <input type="submit" value="Leave the Team">
+                                    </form>
+                                @endif
+                            @endif
+
+                        @else
+                            <form action="/teams/join" method="post">
+                                @method('put')
+                                @csrf
+                                <input type="hidden" name="teams_id" value="{{$team->id}}">
+                                <input type="submit" value="Join the Team">
+                            </form>
+                        @endif
+
+                    @else
+                        <form action="#" method="post">
+                            <input type="submit" value="Join This Team">
+                        </form>
+                    @endauth
                 </div>
                 <div class="bb-single-team-bottom">
                     <p>{{$team->description}}</p>

@@ -54,4 +54,28 @@ class TeamController extends Controller
         }
         abort(401);
     }
+
+    public function teams_join(Request $request){
+        if (auth()->user()->teams_id != null) {
+            return redirect('/profile')->with('message', 'You are already a member of a team');
+        }
+
+        $formField = $request->validate([
+            'teams_id'  => 'required'
+        ]);
+        $formField['team_position'] = 'member';
+
+        User::where('id', auth()->id())->update($formField);
+
+        return redirect('/profile')->with('message', 'Congratulation to join a team');
+    }
+
+    public function teams_leave(){
+        $formField = [
+            'teams_id'  => null,
+            'team_position' => null
+        ];
+        User::where('id', auth()->id())->update($formField);
+        return redirect('/profile')->with('message', 'Successfully leaved from the team');
+    }
 }
