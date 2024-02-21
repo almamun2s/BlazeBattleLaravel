@@ -40,7 +40,10 @@
                         @endif
 
                     @else
-                        <form action="#" method="post">
+                        <form action="/teams/join" method="post">
+                            @method('put')
+                            @csrf
+                            <input type="hidden" name="teams_id" value="{{$team->id}}">
                             <input type="submit" value="Join This Team">
                         </form>
                     @endauth
@@ -57,14 +60,24 @@
                                     <div class="bb-team-member-img">
                                         <img src="{{asset('img/profile.png')}}" alt="">
                                     </div>
-                                    <a href="profile.html">{{$member->fname}}{{$member->lname}}</a>
+                                    <a href="profile.html">{{$member->fname}} {{$member->lname}}@auth @if (auth()->user()->id == $member->id) (You) @endif @endauth</a>
                                     <p>{{$member->team_position}}</p>
-                                    <form action="#" method="post">
-                                        <input type="submit" value="Make SubLeader" class="bb-make-coleader">
-                                    </form>
-                                    <form action="#" method="post">
-                                        <input type="submit" value="Remove from team" class="bb-remove-member">
-                                    </form>
+
+                                    @auth
+                                        @if (($team->id == auth()->user()->teams_id) && (auth()->user()->team_position == 'leader') && (auth()->user()->id != $member->id) )
+
+                                                {{-- <form action="#" method="post">
+                                                    <input type="submit" value="Make SubLeader" class="bb-make-coleader">
+                                                </form> --}}
+                                                <form action="/teams/remove" method="post">
+                                                    @csrf
+                                                    @method('put')
+                                                    <input type="hidden" name="user_id" value="{{$member->id}}">
+                                                    <input type="hidden" name="teams_id" value="{{$team->id}}">
+                                                    <input type="submit" value="Remove from team" class="bb-remove-member">
+                                                </form>
+                                        @endif
+                                    @endauth
                                 </div>
                             @endforeach
                         @else

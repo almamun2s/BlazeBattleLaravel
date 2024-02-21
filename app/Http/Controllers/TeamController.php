@@ -55,6 +55,7 @@ class TeamController extends Controller
         abort(401);
     }
 
+    // Join member to the Team
     public function teams_join(Request $request){
         if (auth()->user()->teams_id != null) {
             return redirect('/profile')->with('message', 'You are already a member of a team');
@@ -70,6 +71,7 @@ class TeamController extends Controller
         return redirect('/profile')->with('message', 'Congratulation to join a team');
     }
 
+    // Leave member from the Team
     public function teams_leave(){
         $formField = [
             'teams_id'  => null,
@@ -77,5 +79,32 @@ class TeamController extends Controller
         ];
         User::where('id', auth()->id())->update($formField);
         return redirect('/profile')->with('message', 'Successfully leaved from the team');
+    }
+
+    // Remove member from the Team by Leader
+    public function remove_member(Request $request){
+        $teamsId = $request['teams_id'];
+        $userId = $request['user_id'];
+        // $teams = Team::find($teamsId);
+        // dd($teams);
+        
+        $leader = User::find(auth()->user()->id);
+
+        // abort_if(, 401);
+
+        if (($teamsId == $leader->teams_id) && ($leader->team_position == 'leader') && (auth()->user()->id != $userId)) {
+            $member = User::find($userId);
+            if ($member->teams_id == $teamsId) {
+
+                $formField = [
+                    'teams_id'  => null,
+                    'team_position' => null
+                ];
+                User::where('id', $userId)->update($formField);
+                return back()->with('message', 'Successfully removed');
+                // dd($member->teams_id);
+            }
+        }
+        abort(403);
     }
 }
