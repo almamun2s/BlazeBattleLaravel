@@ -25,7 +25,7 @@
             <label for="ff_id">Free Fire ID:</label>
             <input type="nubmer" name="ff_id" autocomplete="off" value="{{auth()->user()->ff_id}}" >
             @error('ff_id')
-                <p class="bb-input-error">Inter your Free Fire ID</p>
+                <p class="bb-input-error">{{$message}} </p>
             @enderror
         </div>
         <div class="bb-input">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -24,25 +25,33 @@ class TeamController extends Controller
         return view(
             'team.single',
             [
-                'team'  => $team
+                'team'      => $team,
+                'members'   => User::where('teams_id', $team->id)->get()
+                // 'members'   => $team
             ]
         );
     }
 
     // Team creation page
     public function create(){
-        return view('team.create');
+        if (auth()->user()->teams_id == null) {
+            return view('team.create');
+        }
+        abort(401);
     }
 
     // Creating Team
     public function create_team(Request $request){
-        $formField = $request->validate([
-            'name'          => 'required',
-            'description'   => 'required'
-        ]);
-        $formField['user_id'] = auth()->id();
+        if (auth()->user()->teams_id == null) {
+            $formField = $request->validate([
+                'name'          => 'required',
+                'description'   => 'required'
+            ]);
+            $formField['user_id'] = auth()->id();
 
-        $team = Team::create($formField);
-        return redirect("/teams/$team->id");
+            $team = Team::create($formField);
+            return redirect("/teams/$team->id");
+        }
+        abort(401);
     }
 }

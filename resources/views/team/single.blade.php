@@ -1,5 +1,5 @@
 @include('partials._header')
- 
+
     <!-- ==================================== Team Section ====================================  -->
     <section class="bb-team">
         <div class="bb-container">
@@ -20,48 +20,26 @@
                     <h3>Team members</h3>
 
                     <div class="bb-team-members">
+                        @unless (count($members) == 0)
+                            @foreach($members as $member)
+                                <div class="bb-team-member">
+                                    <div class="bb-team-member-img">
+                                        <img src="{{asset('img/profile.png')}}" alt="">
+                                    </div>
+                                    <a href="profile.html">{{$member->fname}}{{$member->lname}}</a>
+                                    <p>{{$member->team_position}}</p>
+                                    <form action="#" method="post">
+                                        <input type="submit" value="Make SubLeader" class="bb-make-coleader">
+                                    </form>
+                                    <form action="#" method="post">
+                                        <input type="submit" value="Remove from team" class="bb-remove-member">
+                                    </form>
+                                </div>
+                            @endforeach
+                        @else
+                            <p>Team member not found</p>
+                        @endunless
 
-                        <div class="bb-team-member">
-                            <div class="bb-team-member-img">
-                                <img src="assets/img/profile.png" alt="">
-                            </div>
-                            <a href="profile.html">Abdullah Almamun</a>
-                            <p>Team Leader</p>
-                            <form action="#" method="post">
-                                <input type="submit" value="Make SubLeader" class="bb-make-coleader">
-                            </form>
-                            <form action="#" method="post">
-                                <input type="submit" value="Remove from team" class="bb-remove-member">
-                            </form>
-                        </div>
-
-                        <div class="bb-team-member">
-                            <div class="bb-team-member-img">
-                                <img src="assets/img/profile.png" alt="">
-                            </div>
-                            <a href="profile.html">Abdullah Almamun</a>
-                            <p>Member</p>
-                            <form action="#" method="post">
-                                <input type="submit" value="Make SubLeader" class="bb-make-coleader">
-                            </form>
-                            <form action="#" method="post">
-                                <input type="submit" value="Remove from team" class="bb-remove-member">
-                            </form>
-                        </div>
-
-                        <div class="bb-team-member">
-                            <div class="bb-team-member-img">
-                                <img src="assets/img/profile.png" alt="">
-                            </div>
-                            <a href="profile.html">Abdullah Almamun</a>
-                            <p>Sub Leader</p>
-                            <form action="#" method="post">
-                                <input type="submit" value="Make Member" class="bb-make-coleader">
-                            </form>
-                            <form action="#" method="post">
-                                <input type="submit" value="Remove from team" class="bb-remove-member">
-                            </form>
-                        </div>
 
 
                     </div>

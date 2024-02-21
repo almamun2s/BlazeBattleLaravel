@@ -98,7 +98,7 @@ class UserController extends Controller
         $formField = $request->validate([
             'fname' => ['required', 'min:3'],
             'lname' => ['required', 'min:3'],
-            'ff_id' => ['required']
+            'ff_id' => ['required', Rule::unique('users', 'ff_id')]
         ]);
         User::where('id', auth()->id())->update($formField);
 

@@ -155,6 +155,7 @@
 }
 .bb-team-member p{
     color: #333;
+    text-transform: capitalize;
 }
 
 

@@ -16,9 +16,13 @@
                 </div>
                 <h1>Teams</h1>
                 <div class="bb-all-teams">
-                    <div class="bb-team-creation">
-                        <a href="/teams/create" class="bb-first-btn">Create team</a>
-                    </div>
+                    @auth
+                        @if (auth()->user()->teams_id == null)
+                            <div class="bb-team-creation">
+                                <a href="/teams/create" class="bb-first-btn">Create team</a>
+                            </div>    
+                        @endif
+                    @endauth
 
                     @unless (count($teams) == 0)
                         @foreach ($teams as $team)
