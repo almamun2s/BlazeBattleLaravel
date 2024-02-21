@@ -50,7 +50,7 @@ class TeamController extends Controller
             $formField['user_id'] = auth()->id();
 
             $team = Team::create($formField);
-            return redirect("/teams/$team->id");
+            return redirect("/teams/$team->id")->with('message', 'Congratulation for Creating a Team');
         }
         abort(401);
     }
@@ -85,12 +85,8 @@ class TeamController extends Controller
     public function remove_member(Request $request){
         $teamsId = $request['teams_id'];
         $userId = $request['user_id'];
-        // $teams = Team::find($teamsId);
-        // dd($teams);
         
         $leader = User::find(auth()->user()->id);
-
-        // abort_if(, 401);
 
         if (($teamsId == $leader->teams_id) && ($leader->team_position == 'leader') && (auth()->user()->id != $userId)) {
             $member = User::find($userId);
@@ -101,10 +97,36 @@ class TeamController extends Controller
                     'team_position' => null
                 ];
                 User::where('id', $userId)->update($formField);
-                return back()->with('message', 'Successfully removed');
-                // dd($member->teams_id);
+                return back()->with('message', "Successfully removed $member->fname");
             }
         }
         abort(403);
+    }
+
+    // Showing Team edit form
+    public function edit($team){
+        if ((auth()->user()->teams_id == $team ) && (auth()->user()->team_position == 'leader') ) {
+            // dd($team);
+            return view(
+                'team.edit',
+                [
+                    'teams'  => Team::find($team)
+                ]
+            );
+        }
+        abort(401);
+    }
+
+    // Update Team
+    public function edit_team($team, Request $request){
+        if ((auth()->user()->teams_id == $team ) && (auth()->user()->team_position == 'leader') ) {
+            $formField = $request->validate([
+                'name'          => 'required',
+                'description'   => 'required'
+            ]);
+            Team::where('id', $team)->update($formField);
+            return redirect("/teams/$team")->with('message', 'Team Updated Successfully');
+        }
+        abort(401);
     }
 }

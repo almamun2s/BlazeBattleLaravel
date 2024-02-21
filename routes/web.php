@@ -39,4 +39,6 @@ Route::post('/teams/create', [TeamController::class, 'create_team'] )->middlewar
 Route::put('/teams/join', [TeamController::class, 'teams_join'])->middleware('auth'); // Submitting Team join form
 Route::put('/teams/leave', [TeamController::class, 'teams_leave'])->middleware('auth'); // Submitting Team join form
 Route::put('/teams/remove', [TeamController::class, 'remove_member'])->middleware('auth'); // Removing Team member from the Team by Team leader
+Route::get('/teams/{team}/edit', [TeamController::class, 'edit'])->middleware('auth'); // Showing Leader the team edit form
+Route::put('/teams/{team}/edit', [TeamController::class, 'edit_team'])->middleware('auth'); // Submitting Leader the team edit form
 Route::get('/teams/{team}', [TeamController::class, 'single'] ); // Showing Single Team 

@@ -144,6 +144,9 @@
 .bb-input input:focus{
     border: 1px solid var(--profile-bg);
 }
+.bb-input textarea:focus{
+    border: 1px solid var(--profile-bg);
+}
 
 .bb-input input[type=submit]{
     background-color: var(--profile-bg);

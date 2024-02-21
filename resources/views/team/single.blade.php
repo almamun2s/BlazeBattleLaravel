@@ -21,6 +21,7 @@
                                     {{-- <form action="#" method="post">
                                         <input type="submit" value="Delete the Team">
                                     </form> --}}
+                                    <a href="/teams/{{$team->id}}/edit" class="bb-first-btn">Edit Team</a>
                                 @else
                                     <form action="/teams/leave" method="post">
                                         @method('put')
