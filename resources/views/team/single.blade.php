@@ -61,7 +61,7 @@
                                     <div class="bb-team-member-img">
                                         <img src="{{asset('img/profile.png')}}" alt="">
                                     </div>
-                                    <a href="profile.html">{{$member->fname}} {{$member->lname}}@auth @if (auth()->user()->id == $member->id) (You) @endif @endauth</a>
+                                    <a href="/profile?id={{$member->id}}">{{$member->fname}} {{$member->lname}}@auth @if (auth()->user()->id == $member->id) (You) @endif @endauth</a>
                                     <p>{{$member->team_position}}</p>
 
                                     @auth

@@ -7,7 +7,7 @@
                 <div class="bb-team-search">
                     <form action="/teams"> 
                         <div class="bb-input bb-search-item">
-                            <input type="search" name="search" placeholder="Search a team" autocomplete="off">
+                            <input type="search" name="search" placeholder="Search a team" autocomplete="off" value=" @if(request()->has('search')) {{ request('search') }} @endif">
                         </div>
                         <div class="bb-input bb-search-submit">
                             <input type="submit" value="Search">
