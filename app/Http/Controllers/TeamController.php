@@ -49,7 +49,14 @@ class TeamController extends Controller
             ]);
             $formField['user_id'] = auth()->id();
 
-            $team = Team::create($formField);
+            $team = Team::create($formField); // Creating the Team 
+
+            $formFieldUser = [
+                'teams_id'  => $team->id,
+                'team_position' => 'leader'
+            ];
+            User::where('id', auth()->id())->update($formFieldUser); // Join the Team as leader
+
             return redirect("/teams/$team->id")->with('message', 'Congratulation for Creating a Team');
         }
         abort(401);

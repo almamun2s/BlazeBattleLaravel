@@ -89,6 +89,18 @@ class UserController extends Controller
     // Showing user Profile
     public function profileTab( $tab )
     {
+        if (isset($_GET['id'])) {
+            // dd($_GET['id']);
+            $userId = $_GET['id'];
+            return view(
+                'user.otherProfile',
+                [
+                    'tab'   => 'tournament',
+                    'team'  => Team::find(User::findOrFail($userId)->teams_id),
+                    'user'  => User::find($userId)
+                ]
+            );
+        }
         return view(
             'user.profile',
             [

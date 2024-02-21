@@ -25,7 +25,7 @@
                 <div class="bb-profile-bottom">
                     <div class="bb-profile-bottom-left">
                         <ul>
-                            <li><a href="/profile/tournament" class="@if ($tab == 'tournament') {{'bb-active-tab'}} @endif">Tournaments</a></li>
+                            <li><a href="/profile/tournament?id={{$user->id}}" class="@if ($tab == 'tournament') {{'bb-active-tab'}} @endif">Tournaments</a></li>
                         </ul>
                     </div>
                     <div class="bb-profile-bottom-right">

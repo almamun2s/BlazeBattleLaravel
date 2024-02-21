@@ -19,6 +19,7 @@
     font-size: 2rem;
     font-family: var(--ff-barlow);
     color: #fff;
+    text-transform: capitalize;
  }
  .bb-profile-details a{
     text-decoration: none;
