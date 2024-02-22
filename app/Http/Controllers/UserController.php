@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -119,5 +120,30 @@ class UserController extends Controller
         User::where('id', auth()->id())->update($formField);
 
         return back()->with('message', 'Profile updated Successfully.');
+    }
+
+    public function change_pwd(Request $request){
+        $formField = $request->validate([
+                'old_password' => 'required',
+                'password' => 'required|min:6|confirmed'
+            ],
+            [
+                'old_password.required' => 'You should provide your old password',
+                'password.required'     => 'New Password Can\'t be empty ',
+                'password.min'          => 'Your password should at least 6 character '
+            ]
+        );
+        $userOldPwd             = auth()->user()->password;
+
+        if (Hash::check($request->old_password, $userOldPwd)) {
+
+            $changedPwd = bcrypt($formField['password']);
+
+            User::where('id', auth()->id())->update(['password' => $changedPwd ]);
+
+            return back()->with('message', 'Passwor changed Successfully.');
+        }
+
+        return redirect()->back()->withErrors(['old_password' => 'The old password did not match.']);
     }
 }

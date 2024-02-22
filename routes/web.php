@@ -27,6 +27,7 @@ Route::post('/login', [UserController::class, 'login_user'])->middleware('guest'
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth'); // Submitting logout form
 Route::get('/register', [UserController::class, 'register'])->middleware('guest'); // Showing registration form
 Route::post('/register', [UserController::class, 'register_user'])->middleware('guest'); // Submitting registration form
+Route::put('/change_pwd', [UserController::class, 'change_pwd'])->middleware('auth'); // Submitting registration form
 
 Route::get('/profile', [UserController::class, 'profile'])->middleware('auth'); // Showing profile
 Route::put('/profile/edit', [UserController::class, 'profile_edit'])->middleware('auth'); // Submitting profile edit

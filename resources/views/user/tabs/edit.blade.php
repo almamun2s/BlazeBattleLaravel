@@ -33,18 +33,26 @@
         </div>
     </form>
 
-    <form action="#" method="post" class="bb-password">
+    <form action="/change_pwd" method="post" class="bb-password">
+        @csrf
+        @method('put')
         <div class="bb-input">
-            <label for="old-pwd">Old Password:</label>
-            <input type="password" name="old-pwd" autocomplete="off" >
+            <label for="old_password">Old Password:</label>
+            <input type="password" name="old_password" autocomplete="off" >
+            @error('old_password')
+                <p class="bb-input-error">{{$message}}</p>
+            @enderror
         </div>
         <div class="bb-input">
-            <label for="new-pwd">New Password:</label>
-            <input type="password" name="new-pwd" autocomplete="off" >
+            <label for="password">New Password:</label>
+            <input type="password" name="password" autocomplete="off" >
+            @error('password')
+                <p class="bb-input-error">{{$message}}</p>
+            @enderror
         </div>
         <div class="bb-input">
-            <label for="cnfrm-pwd">Confirm Password:</label>
-            <input type="password" name="cnfrm-pwd" autocomplete="off" >
+            <label for="password_confirmation">Confirm Password:</label>
+            <input type="password" name="password_confirmation" autocomplete="off" >
         </div>
 
         <div class="bb-input">
